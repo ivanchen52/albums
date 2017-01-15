@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
 
 const AlbumDetail = ({album}) => {
-    const {title, artist, thumbnail_image, image} = album;
+    const {title, artist, thumbnail_image, image, url} = album;
     const {
         headerContentStyle,
         thumbnailStyle,
@@ -33,8 +33,8 @@ const AlbumDetail = ({album}) => {
             </CardSection>
 
             <CardSection>
-                <Button onPress={()=> console.log(title)}>
-                    <Text>Click me</Text>
+                <Button onPress={() => Linking.openURL(url)}>
+                    <Text>Buy now</Text>
                 </Button>
             </CardSection>
         </Card>
